@@ -1,6 +1,6 @@
 /*
  *  Catch v1.2.1
- *  Generated: 2015-06-30 18:23:27.961086
+ *  Generated: 2015-08-30 10:53:27.032653
  *  ----------------------------------------------------------
  *  This file has been merged from multiple headers. Please don't edit it directly
  *  Copyright (c) 2012 Two Blue Cubes Ltd. All rights reserved.
@@ -679,11 +679,11 @@ namespace Catch {
 
     // ResultDisposition::Flags enum
     struct ResultDisposition { enum Flags {
-        Normal = 0x01,
+        Normal = 0x00,
 
-        ContinueOnFailure = 0x02,   // Failures fail test, but execution continues
-        FalseTest = 0x04,           // Prefix expression with !
-        SuppressFail = 0x08         // Failures are reported but do not fail the test
+        ContinueOnFailure = 0x01,   // Failures fail test, but execution continues
+        FalseTest = 0x02,           // Prefix expression with !
+        SuppressFail = 0x04         // Failures are reported but do not fail the test
     }; };
 
     inline ResultDisposition::Flags operator | ( ResultDisposition::Flags lhs, ResultDisposition::Flags rhs ) {
@@ -5797,6 +5797,7 @@ namespace Catch {
         std::vector<TestCase> m_functionsInOrder;
         std::vector<TestCase> m_nonHiddenFunctions;
         size_t m_unnamedCount;
+        std::ios_base::Init m_ostreamInit; // Forces cout/ cerr to be initialised
     };
 
     ///////////////////////////////////////////////////////////////////////////

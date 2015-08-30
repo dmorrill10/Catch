@@ -41,11 +41,11 @@ namespace Catch {
 
     // ResultDisposition::Flags enum
     struct ResultDisposition { enum Flags {
-        Normal = 0x01,
+        Normal = 0x00,
 
-        ContinueOnFailure = 0x02,   // Failures fail test, but execution continues
-        FalseTest = 0x04,           // Prefix expression with !
-        SuppressFail = 0x08         // Failures are reported but do not fail the test
+        ContinueOnFailure = 0x01,   // Failures fail test, but execution continues
+        FalseTest = 0x02,           // Prefix expression with !
+        SuppressFail = 0x04         // Failures are reported but do not fail the test
     }; };
 
     inline ResultDisposition::Flags operator | ( ResultDisposition::Flags lhs, ResultDisposition::Flags rhs ) {
@@ -55,7 +55,7 @@ namespace Catch {
     inline bool shouldContinueOnFailure( int flags )    { return ( flags & ResultDisposition::ContinueOnFailure ) != 0; }
     inline bool isFalseTest( int flags )                { return ( flags & ResultDisposition::FalseTest ) != 0; }
     inline bool shouldSuppressFailure( int flags )      { return ( flags & ResultDisposition::SuppressFail ) != 0; }
-    
+
 } // end namespace Catch
 
 #endif // TWOBLUECUBES_CATCH_RESULT_TYPE_H_INCLUDED
